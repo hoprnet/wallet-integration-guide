@@ -23,6 +23,9 @@ For this guide, we have created an easy to use docker-compose file which can be 
 
 ### Setting up a working environment
 
+In the following setup, we are creating a local environment where we are making 5 HOPRd nodes and 5 HOPR RPC Relays available. For every HOPRd node we have one HOPR RPC Relay, as we want every HOPRd node to have the capability of processing RPC requests.
+Five HOPRd nodes are enough to emulate a working HOPR network, allowing us to run everything locally.
+
 #### Requirements
 
 - make
