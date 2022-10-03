@@ -56,8 +56,6 @@ This means that within the wallet, the only changes that need to be done are:
 
 - [AmbireTech](https://github.com/AmbireTech/wallet)
 - [BlockWallet](https://github.com/block-wallet/extension)
-- [Brave](https://github.com/brave)
-- [Electrum](https://github.com/spesmilo/electrum)
 - [enKrypt](https://github.com/enkryptcom/enKrypt)
 - [Frame](https://github.com/floating/frame)
 - [MetaMask](https://github.com/MetaMask/metamask-extension/)
