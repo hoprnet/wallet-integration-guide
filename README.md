@@ -74,4 +74,4 @@ This means that within the wallet, the only changes that need to be done are:
 
 ### Assets
 
-- [HOPR logos](https://github.com/hoprnet/hopr-assets/tree/master/v1/logo)
+You can find access to various HOPR assets such as logos and color values [here](https://drive.google.com/drive/folders/1SavIZB-ALgXZ3RBvt27l2HRvIHk6q4kB?usp=sharing).
