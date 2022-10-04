@@ -14,8 +14,7 @@ You run HOPR by using [HOPRd](https://docs.hoprnet.org/v1.85/core/what-is-hopr) 
 
 ### How it works
 
-[HOPR RPC Relay](https://github.com/hoprnet/hopr-rpc-relay) acts as a translation layer between the wallet and a HOPRd node.
-All RPC requests made by the wallet need to be send to HOPR RPC Relay, once received, HOPR RPC Relay will send these messages through the HOPR network, and await for a response to return.
+["HOPR RPC Relay"](https://github.com/hoprnet/hopr-rpc-relay) is a translation layer between HOPR nodes and wallets/RPC providers. Unlike a ubiquitous approach where wallets send RPC requests directly to an RPC provider, all the RPC requests made by a wallet are sent to the HOPR network via a "HOPR RPC Relay". RPC requests in the HOPR network get mixed and reconstructed by the "HOPR RPC Relay" before reaching an RPC provider. The "HOPR RPC Relay" on the wallet side awaits a response to the request to return.
 
 ![Diagram of how HOPR RPC Relay works](./hopr-rpc-relay-overview.png "HOPR RPC Relay Overview")
 
