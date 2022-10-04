@@ -64,14 +64,10 @@ As you can see from the example above, the only difference is that you need to s
 
 ### Implementation ideas
 
-1. Most importantly, it is not ideal to ask users to update their existing URLs, such as `<hopr-rpc-relay>/?exit-provider=<exit-provider>`.
-
-Your job is to find creative ways to make this as user-friendly as possible.
-Possible options:
-
-- Add an input field per network
-- Add an input field in the settings and a checkbox for every network that enables HOPR.
-
+1. Most importantly, it is not ideal to ask users to update their existing URLs, such as `<hopr-rpc-relay>/?exit-provider=<exit-provider>`. Your job is to find creative ways to make this as user-friendly as possible.
+   Possible options:
+   - Add an input field per network
+   - Add an input field in the settings and a checkbox for every network that enables HOPR.
 2. While HOPR RPC Relay uses a restful API endpoint, you can use HOPRd's API endpoint `http://localhost:13301/api/v2/_swagger` to fetch various data that can be complementary to the wallet integration. For example, API `http://localhost:13301/api/v2/account/balances` will show you the balance available for the running HOPRd node, which the user might find helpful.
 
 ### Assets
