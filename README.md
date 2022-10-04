@@ -9,20 +9,20 @@ In this guide, we will be making sure you have everything you need to begin inte
 
 [HOPR](https://hoprnet.org/) is a privacy-preserving messaging protocol which enables the creation of a secure communication network via incentivized relay nodes. You run HOPR by using [HOPRd](https://docs.hoprnet.org/v1.85/core/what-is-hopr) (HOPR Daemon).
 
-[HOPR RPC Relay](https://github.com/hoprnet/hopr-rpc-relay) is an application you can run alongside your HOPRd node, which will send all your RPC requests through HOPR, preserving your privacy.
+[RPCh](https://github.com/hoprnet/rpch) is an application you can run alongside your HOPRd node, which will send all your RPC requests through HOPR, preserving your privacy.
 
 ### How it works
 
-[HOPR RPC Relay](https://github.com/hoprnet/hopr-rpc-relay) acts as a translation layer between the wallet and a HOPRd node.
-All RPC requests made by the wallet must be sent to HOPR RPC Relay. Once received, HOPR RPC Relay will send these messages through the HOPR network and await a response to return.
+[RPCh](https://github.com/hoprnet/rpch) acts as a translation layer between the wallet and a HOPRd node.
+All RPC requests made by the wallet must be sent to RPCh. Once received, RPCh will send these messages through the HOPR network and await a response to return.
 
-![Diagram of how HOPR RPC Relay works](./hopr-rpc-relay-overview.png "HOPR RPC Relay Overview")
+![Diagram of how RPCh works](./rpch-overview.png "RPCh Overview")
 
-For this guide, we have created an easy-to-use docker-compose file which can be used to create the environment required (5 HOPRd nodes, 5 HOPR RPC Relay) so you don't need to shuffle through all our docs and set up the environment manually.
+For this guide, we have created an easy-to-use docker-compose file which can be used to create the environment required (5 HOPRd nodes, 5 RPCh) so you don't need to shuffle through all our docs and set up the environment manually.
 
 ### Setting up a working environment
 
-In the following setup, we are creating a local environment, making 5 HOPRd nodes and 5 HOPR RPC Relays available. For every HOPRd node, we have one HOPR RPC Relay, as we want every HOPRd node to be capable of processing RPC requests. Five HOPRd nodes are enough to emulate a working HOPR network, allowing us to run everything locally.
+In the following setup, we are creating a local environment, making 5 HOPRd nodes and 5 RPChs available. For every HOPRd node, we have one RPCh, as we want every HOPRd node to be capable of processing RPC requests. Five HOPRd nodes are enough to emulate a working HOPR network, allowing us to run everything locally.
 
 #### Requirements
 
@@ -32,7 +32,7 @@ In the following setup, we are creating a local environment, making 5 HOPRd node
 
 #### Steps
 
-1. Go to [HOPR RPC Relay repository](https://github.com/hoprnet/hopr-rpc-relay)
+1. Go to [RPCh repository](https://github.com/hoprnet/rpch)
 2. Clone the project locally
 3. Run `RELAY_VERSION=v0.0.1 make devkit-run`
 
@@ -40,16 +40,16 @@ Once you've completed the steps, you will have a local HOPR and HOPR Relay clust
 
 Three important endpoints become available locally:
 
-1. `http://localhost:9001` used later on to send requests to HOPR RPC Relay. Use `http://localhost:9001/?exit-provider=https://primary.gnosis-chain.rpc.hoprtech.net` to send requests to Gnosis chain via HOPR
+1. `http://localhost:9001` used later on to send requests to RPCh. Use `http://localhost:9001/?exit-provider=https://primary.gnosis-chain.rpc.hoprtech.net` to send requests to Gnosis chain via HOPR
 2. `http://localhost:13301` HOPRd's API endpoint, check out `http://localhost:13301/api/v2/_swagger`
 3. `http://localhost:19501` HOPRd's admin panel, use `http://localhost:19501/?apiEndpoint=http://localhost:13301&apiToken=^^awesomeHOPRr3l4y^^` for access
 
 #### Connecting a wallet
 
-HOPR RPC Relay is designed to be a drop-in replacement to your usual provider (ex: infura).
+RPCh is designed to be a drop-in replacement to your usual provider (ex: infura).
 This means that within the wallet, the only change that needs to be made is:
 
-1. Switching the provider URL to one of your locally running HOPR RPC Relays
+1. Switching the provider URL to one of your locally running RPChs
    Example: `https://primary.gnosis-chain.rpc.hoprtech.net` to `http://localhost:9001/?exit-provider=https://primary.gnosis-chain.rpc.hoprtech.net`
 
 As you can see from the example above, the only difference is that you need to specify the _exiting_ provider (used to process requests) within the URL parameters.
@@ -64,11 +64,11 @@ As you can see from the example above, the only difference is that you need to s
 
 ### Implementation ideas
 
-1. Most importantly, it is not ideal to ask users to update their existing URLs, such as `<hopr-rpc-relay>/?exit-provider=<exit-provider>`. Your job is to find creative ways to make this as user-friendly as possible.
+1. Most importantly, it is not ideal to ask users to update their existing URLs, such as `<rpch>/?exit-provider=<exit-provider>`. Your job is to find creative ways to make this as user-friendly as possible.
    Possible options:
    - Add an input field per network
    - Add an input field in the settings and a checkbox for every network that enables HOPR.
-2. While HOPR RPC Relay uses a restful API endpoint, you can use HOPRd's API endpoint `http://localhost:13301/api/v2/_swagger` to fetch various data that can be complementary to the wallet integration. For example, API `http://localhost:13301/api/v2/account/balances` will show you the balance available for the running HOPRd node, which the user might find helpful.
+2. While RPCh uses a restful API endpoint, you can use HOPRd's API endpoint `http://localhost:13301/api/v2/_swagger` to fetch various data that can be complementary to the wallet integration. For example, API `http://localhost:13301/api/v2/account/balances` will show you the balance available for the running HOPRd node, which the user might find helpful.
 
 ### Assets
 
