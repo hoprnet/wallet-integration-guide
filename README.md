@@ -34,7 +34,7 @@ In the following setup, we are creating a local environment, making 5 HOPRd node
 
 1. Go to [RPCh repository](https://github.com/hoprnet/rpch)
 2. Clone the project locally
-3. Run `RELAY_VERSION=v0.0.3 make devkit-run`
+3. Run `RELAY_VERSION=latest make devkit-run`
 
 Once you've completed the steps, you will have a local HOPR and HOPR Relay cluster running, ready to accept RPC requests!
 
