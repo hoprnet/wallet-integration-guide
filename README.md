@@ -3,6 +3,8 @@
 Welcome to HOPR's wallet integration guide.
 In this guide, we will be making sure you have everything you need to begin integrating your favourite wallet with HOPR.
 
+Additionally, you may check our [video guide](https://www.youtube.com/watch?v=-QwF878qJ8w).
+
 <!-- Additionally, there is a supplementary [demo](./demo) which might help assist you in your journey. -->
 
 ## Getting Started
