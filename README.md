@@ -64,6 +64,8 @@ As you can see from the example above, the only difference is that you need to s
 - [Frame](https://github.com/floating/frame)
 - [MetaMask](https://github.com/MetaMask/metamask-extension/)
 
+or your favorite wallet
+
 ### Implementation ideas
 
 1. Most importantly, it is not ideal to ask users to update their existing URLs, such as `<rpch>/?exit-provider=<exit-provider>`. Your job is to find creative ways to make this as user-friendly as possible.
